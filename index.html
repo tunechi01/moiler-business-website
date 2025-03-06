@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover the World's Hidden Wonders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+            overflow-x: hidden;
+
+        }
+        header {
+            
+            height: 80px;
+            padding: 20px;
+            text-align: center;
+            
+        }
+        .container {
+            padding: 20px;
+            justify-content: space-between; 
+             padding: 20px;
+
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .section h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section ul li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        .section ul li a:hover {
+            text-decoration: underline;
+        }
+        .inspiration {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .inspiration input[type="email"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .inspiration button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .inspiration button:hover {
+            background-color: #555;
+        }
+        .gallery {
+            display: flex;
+            position: relative;
+            gap: 10px;
+
+        }
+        .gallery img {
+             max-width:80% ; 
+            height: auto;
+            float: right;
+        }
+         .big {
+            width: 300px;
+            max-width: 600px;
+            height: auto;
+            position: relative;
+            float: right;
+            margin-left: 5%;
+            
+            
+        }
+        .gallery .small {
+            width: 30%;
+            max-width: 300px;
+            height: 120px;
+        }
+        .pic-style{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            display: inline-block;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+
+        }
+        .header-pic{
+            width: 120px;
+            height: 120px;
+            float: left;
+            margin-top: -25px;
+            margin-top: 5px;
+        }
+        .opus{
+            color: black;
+            font-weight: bolder;
+            font-size: 40px;
+        }
+        .Largeesse{
+            font-size: 40px;
+
+        }
+        .hamburger-menu {
+            position: absolute;
+            z-index: 1;
+            top: 25px;
+            right: 10px;
+
+        }
+
+        .hamburger {
+          position: relative;
+          display: block;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+
+        }
+
+        .hamburger span {
+          display: block;
+          width: 30px;
+          height: 4px;
+          margin-bottom: 6px;
+          background-color: #333;
+          transition: all 0.3s;
+        }
+
+        #menu-toggle:checked + .hamburger span:nth-child(1) {
+          transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        #menu-toggle:checked + .hamburger span:nth-child(2) {
+          opacity: 0;
+        }
+        #menu-toggle:checked + .hamburger span:nth-child(3) {
+          transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .menu {
+          position: absolute;
+          top: 35px;
+          background-color: skyblue;
+          width: 200px;
+          padding: 20px;
+          border: 1px solid #ccc;
+          display: none;
+          right: 1px;
+          border-radius: 30px;
+          color: white;
+          line-height: 30px;
+          font-weight: bolder;
+
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: inherit;
+
+        }
+        li {
+            list-style: none;
+
+        }
+        li:hover {
+            color: red;
+            cursor: pointer;
+
+        }
+
+        #menu-toggle:checked ~ .menu {
+          display: block;
+        }
+
+        #menu-toggle {
+          opacity: 0;
+          position: absolute;
+          z-index: -1;
+        }
+
+        .sign-in-btn{
+            color: white;
+            background-color: black;
+            border-radius: 60px;
+            width: 150px;
+            height: 50px;
+            font-weight: bolder;
+            font-size: 100%;
+            border: 0;
+            font-family: sans-serif;
+            top: 15px;
+            right: 80px;
+            position: absolute;
+            cursor: pointer;
+
+        }
+        .sign-in-btn:hover {
+            background-color: skyblue;
+            color: black;
+        }
+
+        h1{
+            color: #140360ff;
+            font-family: Bodoni MT Black;
+        }
+        .discover-infor{
+
+            width: 30%;
+            padding-right: 20px;
+        }
+        .discover-sec{
+            display: flex;
+            margin-top: 3%;
+            
+        }
+        .intro-sec{
+            display: inline-block;
+        }
+        .pattern{
+            width: 100%;
+        }
+        .explore-in-btn{
+            color: #140360ff;
+            background-color: skyblue;
+            border-radius: 60px;
+            width: 150px;
+            height: 50px;
+            font-weight: bold;
+            font-size: 100%;
+            border: 0;
+            font-family: Berlin Sans FB;
+            cursor: pointer;
+            margin-left: 30%;
+
+        }
+        .explore-in-btn:hover{
+            background-color: aliceblue;
+        }
+        .arrow{
+            width: 20px;
+            height: 5px;
+            margin-top: 50px;
+            margin-left: 10px;
+
+        }
+        .straight-line{
+            height: 5px;
+            margin-top: 50px;
+            margin-left: 10px;
+            width: 75%;
+            
+
+        }
+        .lines{
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .creating-gap-bellow{
+            padding-bottom: 40px;
+        }
+        .org-name{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #img-transition{
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+        #img-transition img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            height: auto;
+            transform: translate(-50%, -50%) scale(0.5);
+
+            object-fit: cover;
+            transition: transform 1s ease-in-out;
+            z-index: 1;
+        }
+        #img-transition img.active{
+            transform: translate(-50%,-50%) scale(1);
+            z-index: 2;
+        }
+
+        @keyframes scroll{
+            0%{
+                transform: translate(-50%, -50%).5 scale(0);
+                z-index: 1;
+            }
+            10%{
+                transform: translate(-50%, -50%) scale(1);
+                z-index: 2;
+            }
+             20%{
+                transform: translate(-50%, -50%) scale(1);
+                z-index: 2;
+            }
+             30%{
+                transform: translate(-50%, -50%) scale(0.5);
+                z-index: 1;
+            }
+             100%{
+                transform: translate(-50%, -50%) scale(0.5);
+                z-index: 1;
+            }
+        }
+        #img-transition img:nth-child(1){
+            animation: scroll 12s infinite;
+        }
+        #img-transition img:nth-child(2){
+            animation: scroll 12s 4s infinite;
+        }
+        #img-transition img:nth-child(3){
+            animation: scroll 12s 8s infinite;
+        }
+
+        .infor-section{
+            padding-bottom: 100px;
+            width: 100%;
+            right: 0;
+            left: 0;
+            height: 450px;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="gallery">
+            <img src=" img/Asset 42.png" alt="Hidden Wonder 2" class="header-pic">
+            <label class="org-name"><span class="opus">Opus</span> <span class="Largeesse">Largeesse</span></label>
+            <a href="login.html"><input type="button" value="Sign In" class="sign-in-btn"></a>
+            
+            <div class="hamburger-menu">
+              <input type="checkbox" id="menu-toggle">
+              <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+              <div class="menu">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+       
+        <div class="section" >
+            <h1>Discover the World's Hidden Wonders...</h1>
+        
+        <div class="discover-sec">
+<span class="discover-infor">
+Welcome to a journey like no other! Our website is your gateway to uncovering the Earth’s best-kept secrets, from breathtaking natural landscapes to ancient cultural treasures. Whether you’re an avid explorer, a curious traveler, or simply someone who loves to dream, we invite you to dive into the extraordinary. Here, you’ll find hidden gems, off-the-beaten-path destinations, and stories that inspire wanderlust. Let’s embark on an adventure to discover the world’s hidden wonders together—because the most remarkable experiences are often found where you least expect them. Start exploring today!</span>
+
+<img src=" img/Asset 45.png" alt="Hidden Wonder 1" class="big">
+    </div>
+            
+            <div class="gallery">
+                <img src=" img/Asset 46.png" alt="Hidden Wonder 1" class="pattern">
+            </div>
+    
+</div>
+</div>
+
+<a href="login.html" ><input type="button" value="EXPLORE" class="explore-in-btn"></a>
+
+<div class="lines">
+<h1>Recently Uploaded</h1>
+
+<img src=" img/Asset 24.png" alt="Hidden Wonder 1" class="arrow">
+<img src=" img/Asset 23.png" alt="Hidden Wonder 1" class="straight-line">
+</div>
+       
+        
+
+        <!-- Latest Stories Section -->
+        <div class="creating-gap-bellow">
+        <div class="section">
+            <div class="gallery" id="img-transition">
+                <img src="img/cloud2.jpg" alt="Latest Story 1" class="big">
+                <img src="img/cloud3t.jpg" alt="Latest Story 2" class="big">
+                <img src="img/colocation.png" alt="Latest Story 3" class="big">
+                
+            </div>
+          </div>
+      </div>
+      <div class="infor-section">
+          
+
+      </div>
+    <footer>
+        <p>&copy; 2025 Discover the World's Hidden Wonders</p>
+    </footer>
+</body>
+</html>

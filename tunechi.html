@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>picture</title>
+  <style type="text/css">
+      /* Container for the scrolling section */
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+/* Wrapper for the images */
+.scroll-wrapper {
+  display: flex;
+  gap: 20px; /* Space between images */
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+}
+
+/* Individual images */
+.scroll-image {
+  scroll-snap-align: center;
+  width: 200px; /* Default size for side images */
+  height: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.7; /* Make side images slightly transparent */
+}
+
+/* Center image styling */
+.scroll-image.active {
+  transform: scale(1.5); /* Enlarge the centered image */
+  opacity: 1; /* Make it fully visible */
+}
+
+/* Dots container */
+.dots-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Individual dots */
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Active dot */
+.dot.active {
+  background-color: #333;
+}
+  </style>
+</head>
+<body>
+
+<div class="scroll-container">
+  <div class="scroll-wrapper">
+    <img src="img/cloud2.jpg" alt="Image 1" class="scroll-image">
+    <img src="img/cloud2.jpg" alt="Image 2" class="scroll-image">
+    <img src="img/colocation.png" alt="Image 3" class="scroll-image">
+    
+  </div>
+  <!-- Dots for navigation -->
+  <div class="dots-container">
+    <span class="dot" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+  </div>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+  
+  const images = document.querySelectorAll('.scroll-image');
+const dots = document.querySelectorAll('.dot');
+const scrollWrapper = document.querySelector('.scroll-wrapper');
+let currentIndex = 0;
+
+// Function to update the active image and dot
+function updateActiveImage(index) {
+  // Remove active class from all images and dots
+  images.forEach(image => image.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
+
+  // Add active class to the current image and dot
+  images[index].classList.add('active');
+  dots[index].classList.add('active');
+
+  // Scroll to the current image
+  scrollWrapper.scrollTo({
+    left: images[index].offsetLeft - (scrollWrapper.offsetWidth / 2 - images[index].offsetWidth / 2),
+    behavior: 'smooth'
+  });
+}
+
+// Function to automatically scroll images
+function autoScroll() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateActiveImage(currentIndex);
+}
+
+// Add click event listeners to dots
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentIndex = index;
+    updateActiveImage(currentIndex);
+  });
+});
+
+// Start automatic scrolling
+let autoScrollInterval = setInterval(autoScroll, 3000); // Change image every 3 seconds
+
+// Pause auto-scroll on hover
+scrollWrapper.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+scrollWrapper.addEventListener('mouseleave', () => {
+  autoScrollInterval = setInterval(autoScroll, 3000);
+});
+</script>
+</body>
+</html>
